@@ -4,7 +4,6 @@ import by.marshruber.marshruberserver.models.MiniBus;
 import by.marshruber.marshruberserver.services.MinibusService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.Mapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,7 +17,12 @@ public class MinibusController {
     MinibusService minibusService;
 
     @GetMapping("/allMinibuses")
-    public List<MiniBus> getAllMniBuses(){
+    public List<MiniBus> getAllMniBuses() {
         return minibusService.getAllMiniBuses();
+    }
+
+    @GetMapping("/index")
+    public String index() {
+        return "Hello Word";
     }
 }
