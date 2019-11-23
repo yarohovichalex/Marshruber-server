@@ -2,11 +2,9 @@ package by.marshruber.marshruberserver.controllers;
 
 import by.marshruber.marshruberserver.models.Driver;
 import by.marshruber.marshruberserver.respositories.DriverRepository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -22,5 +20,15 @@ public class DriverController {
     @GetMapping("/{driverId}")
     public Optional<Driver> getDriverById(@PathVariable Long driverId) {
         return driverRepository.findById((Long) driverId);
+    }
+
+    @GetMapping("/")
+    public List<Driver> getAll() {
+        return (List<Driver>) driverRepository.findAll();
+    }
+
+    @PostMapping("/")
+    public Driver updateDriver(@RequestBody Driver driver) {
+        return driverRepository.save(driver);
     }
 }

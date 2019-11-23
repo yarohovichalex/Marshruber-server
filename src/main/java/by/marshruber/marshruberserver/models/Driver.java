@@ -9,30 +9,61 @@ import javax.persistence.*;
 @ToString(callSuper = true, exclude = "routeId")
 @NoArgsConstructor
 @AllArgsConstructor
+@Data
 public class Driver{
-    @Getter
-    @Setter
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Long getPhone() {
+        return phone;
+    }
+
+    public void setPhone(Long phone) {
+        this.phone = phone;
+    }
+
+    public Long getRouteId() {
+        return routeId;
+    }
+
+    public void setRouteId(Long routeId) {
+        this.routeId = routeId;
+    }
+
+    public String getCarNumber() {
+        return carNumber;
+    }
+
+    public void setCarNumber(String carNumber) {
+        this.carNumber = carNumber;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Getter
-    @Setter
     @Column(name = "name")
     private String name;
 
-    @Getter
-    @Setter
     @Column(name = "phone")
     private Long phone;
 
-    @Getter
-    @Setter
     @Column(name = "route_id")
     private Long routeId;
 
-    @Getter
-    @Setter
     @Column(name = "car_number")
     private String carNumber;
 }
