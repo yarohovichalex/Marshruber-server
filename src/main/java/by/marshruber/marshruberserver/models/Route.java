@@ -1,29 +1,22 @@
 package by.marshruber.marshruberserver.models;
 
+import lombok.*;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "route")
-public class Route {
-
+@NoArgsConstructor
+@AllArgsConstructor
+public class Route{
+    @Getter
+    @Setter
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    int id;
-    String name;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
+    @Getter
+    @Setter
+    @Column(name = "name")
+    private String name;
 }

@@ -1,56 +1,38 @@
 package by.marshruber.marshruberserver.models;
 
+import lombok.*;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "driver")
-public class Driver {
-
+@ToString(callSuper = true, exclude = "routeId")
+@NoArgsConstructor
+@AllArgsConstructor
+public class Driver{
+    @Getter
+    @Setter
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    int id;
-    String name;
-    int phone;
-    int routeId;
-    String carNumber;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    public int getId() {
-        return id;
-    }
+    @Getter
+    @Setter
+    @Column(name = "name")
+    private String name;
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    @Getter
+    @Setter
+    @Column(name = "phone")
+    private Long phone;
 
-    public String getName() {
-        return name;
-    }
+    @Getter
+    @Setter
+    @Column(name = "route_id")
+    private Long routeId;
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getPhone() {
-        return phone;
-    }
-
-    public void setPhone(int phone) {
-        this.phone = phone;
-    }
-
-    public int getRouteId() {
-        return routeId;
-    }
-
-    public void setRouteId(int routeId) {
-        this.routeId = routeId;
-    }
-
-    public String getCarNumber() {
-        return carNumber;
-    }
-
-    public void setCarNumber(String carNumber) {
-        this.carNumber = carNumber;
-    }
+    @Getter
+    @Setter
+    @Column(name = "car_number")
+    private String carNumber;
 }
